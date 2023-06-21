@@ -1,0 +1,336 @@
+/* Start Variables */
+:root {
+  --main-color: #fff;
+  --main-color-alt: #61fcfee3;
+  --main-transition: 0.7s;
+}
+/* End Variables */
+/* Start Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: serif;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.loading {
+  color: #000;
+}
+/* End Global Rules */
+#app {
+  background-image: url(./assets/Day/cloudy.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 700px
+}
+/* Start The header Section  */
+.container header {
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container header .title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+.container header .current {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+.container header .current .temperature {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.container header .current .temperature span:first-child {
+  font-size: 6rem;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+.container header .current .location {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+.container header .current .location span {
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+.container header .current .weather {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.container header .current .weather span:first-child {
+  margin-bottom: 3px;
+  font-size: 1.8rem;
+}
+.container header .current .weather span:last-child {
+  font-size: 1.2rem;
+}
+/* End The header Section  */
+/* Start The body Section  */
+.container .card {
+  height: 100%;
+  background-color: #6e6e6e40;
+  box-shadow: 0 8px 32px 0 #0000004d;
+  padding: 27px 30px 0;
+  border: 1px solid #ffffff2e;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.card::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+.card::-webkit-scrollbar-track,
+.card::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+/* Start The Search Section in The body  */
+.container .card .input-section {
+  display: flex;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  /* box-shadow: 1px 4px 8px 0px #0000002e; */
+}
+.container .card .input-section input {
+  background-color: transparent;
+  box-shadow: 1px 4px 8px 0px #0000002e;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  outline: none;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+  border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  -ms-border-radius: 4px 0 0 4px;
+  -o-border-radius: 4px 0 0 4px;
+}
+.container .card .input-section input::placeholder {
+  color: #fff;
+}
+.container .card .input-section input:focus {
+  background-color: #f9f9f942;
+}
+.container .card .input-section button {
+  font-size: 1.3rem;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  -ms-border-radius: 0 4px 4px 0;
+  -o-border-radius: 0 4px 4px 0;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.container .card .input-section button:hover {
+  background-color: #ddd;
+}
+/* End The Search Section in The body  */
+/* Start The Cities Section in The body  */
+.container .card .cities {
+  border-bottom: 2px solid #fff;
+}
+.container .card .cities ul {
+  margin: 20px 0 0;
+  padding: 0;
+}
+.container .card .cities ul li {
+  padding: 0 0 18px 0;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: 0.7s;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
+}
+.container .card .cities ul li:hover {
+  padding-left: 4px;
+}
+/* End The Cities Section in The body  */
+/* Start The weather-info Section in The body  */
+.container .card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 26px;
+  /* padding-bottom: 15px;
+  margin-bottom: 20px; */
+}
+.container .card .info h2 {
+  margin: 20px 0 0 0;
+}
+.container .card .info div {
+  display: flex;
+  justify-content: space-between;
+}
+.container .card .info div span {
+  transition: 0.7s;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  -ms-transition: 0.7s;
+  -o-transition: 0.7s;
+}
+.container .card .info div:hover span:first-child {
+  margin-left: 10px;
+}
+.container .card .info div:hover span:last-child {
+  margin-right: 10px;
+}
+/* --------------------------------- */
+/* End The weather-info Section in The body  */
+/* Start The daily Section in The body 
+.container .card .daily {
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	gap: 22px;
+	overflow: auto;
+}
+.daily::-webkit-scrollbar {
+	width: 0.5em;
+	height: 0.5em;
+}
+.daily::-webkit-scrollbar-track,
+.daily::-webkit-scrollbar-thumb {
+	background-color: transparent;
+}
+.container .card .daily .day {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 25px;
+}
+.container .card .daily .day span {
+	font-size: 1rem;
+}
+.container .card .daily .day span:last-child {
+	font-size: 0.7rem;
+} */
+/* End The daily Section in The body  */
+/* End The body Section  */
+
+/* Start Media Queries */
+@media (max-width: 769px) {
+  #app {
+    min-height: 165vh;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+  .container header .current {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0px;
+    padding: 0px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+  }
+
+  /* .container .card .daily {
+		margin-top: 60px;
+		padding-bottom: 15px;
+		gap: 40px;
+	} */
+}
+@media (max-width: 999px) {
+  .container header {
+    padding: 22px 22px 0px;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 769px) {
+  .container header {
+    gap: 180px;
+  }
+  .container header .current {
+    margin-bottom: 185px;
+    padding: 5px;
+    border-radius: 15px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+  .container .card {
+    width: 315px;
+  }
+  .container .card .input-section {
+    padding-bottom: 18px;
+  }
+  .container .card .cities {
+    padding-bottom: 10px;
+  }
+  /* .container .card .info {
+		padding-bottom: 35px;
+	} */
+  .container .card .info h2 {
+    margin-top: 35px;
+  }
+
+  .min-max {
+    color: #969696;
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 1222px) {
+  .container .card {
+    width: 515px;
+    height: 100vh;
+  }
+  .container .card .info {
+    gap: 23px;
+  }
+}
+/* End Media Queries */
