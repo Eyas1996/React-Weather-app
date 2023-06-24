@@ -42,7 +42,7 @@ a {
 .container {
   display: flex;
   justify-content: space-between;
-  height: 700px
+  height: 689px;
 }
 /* Start The header Section  */
 .container header {
